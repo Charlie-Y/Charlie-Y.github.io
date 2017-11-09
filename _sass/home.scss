@@ -1,0 +1,51 @@
+.home-body {
+    background: rgb(54, 54, 54);
+}
+
+.home-title-wrapper {
+    margin-top: 20%;
+    text-align: center;
+    color: white;
+}
+
+.home-title-top {
+}
+
+.home-title-middle {
+}
+
+.home-title-bottom {
+}
+
+.home-title-main {
+    font-size: 2.4rem;
+}
+
+.home-nav-wrapper {
+    color: white;
+    margin: 3rem 0rem;
+}
+
+.home-nav {
+    display: flex;
+    @include media-query($on-palm) {
+        display: block;
+    }
+}
+
+.home-nav-block {
+    margin: 0;
+    padding: 0 0.5rem;
+
+    @include media-query($on-palm) {
+        margin-top: $spacing-unit;
+    }
+
+    .home-nav-upper {
+        text-align: center;
+    }
+    .home-nav-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+}

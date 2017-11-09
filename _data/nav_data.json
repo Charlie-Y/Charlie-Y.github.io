@@ -1,0 +1,28 @@
+{
+    "links": [
+        {
+            "title": "1D",
+            "icon": "",
+            "category": "1D",
+            "description": "Writings, Essays, Plays, Poems."
+        },
+        {
+            "title": "2D",
+            "icon": "",
+            "category": "2D",
+            "description": "Photography, Drawings, Doodles."
+        },
+        {
+            "title": "3D",
+            "icon": "",
+            "category": "3D",
+            "description": "Sculptures, Dance."
+        },
+        {
+            "title": "4D",
+            "icon": "",
+            "category": "4D",
+            "description": "Interactive Art, Games"
+        }
+    ]
+}
