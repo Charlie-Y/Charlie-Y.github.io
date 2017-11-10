@@ -1,28 +1,32 @@
 @import "fonts/Noway/stylesheet_italic";
 @import "fonts/Noway/stylesheet_regular";
 @import "fonts/Novar/novar";
+@import "_base";
+@import "main-icon";
 
 .home-body {
     font-family: "Novar";
-    background: rgb(54, 54, 54);
+    $dark-blue: rgb(13, 22, 50);
+    background: linear-gradient(110deg, $dark-blue, rgb(34, 12, 29));
 }
 
 .home-title-wrapper {
     margin-top: 20%;
     text-align: center;
     color: white;
-
     // font-weight: lighter;
 }
 
 .home-title-top {
     .home-title {
+        opacity: 0.7;
         font-weight: 200;
     }
 }
 
 .home-title-middle {
     .home-title-sub {
+        opacity: 0.7;
         font-weight: lighter;
     }
 }
@@ -32,15 +36,19 @@
 
 .home-title.home-title-main {
     // font-family: "nowayitalic";
-    font-size: 3rem;
+    font-size: 3.5rem;
+}
+
+.home-nav-icon-wrapper {
+    height: 40px;
 }
 
 .home-nav-wrapper {
     color: white;
     margin: 3rem 0rem;
-    a {
-        color: rgb(198, 198, 198);
-    }
+    // a {
+    // color: rgb(198, 198, 198);
+    // }
 }
 
 @mixin debug-border {
@@ -56,7 +64,8 @@
 
 .home-nav-block {
     margin: 0;
-    padding: 0 0.5rem;
+    // Block padding
+    // padding: 0 0.5rem;
     flex-basis: 25%;
 
     // @include debug-border;
@@ -67,10 +76,18 @@
 
     .home-nav-upper {
         text-align: center;
+        font-size: 2rem;
+        a {
+            color: white;
+        }
     }
     .home-nav-title {
         font-size: 1rem;
         text-align: center;
+        a {
+            opacity: 0.7;
+            color: white;
+        }
     }
 }
 
@@ -80,6 +97,16 @@
     left: 0;
     right: 0;
     text-align: center;
+    // margin: 3rem 0;
+
+    @include media-query($on-palm) {
+        position: relative;
+        bottom: 0;
+        margin: 3rem 0;
+        text-align: center;
+        margin-top: $spacing-unit;
+    }
+
     .about-link {
         color: rgb(128, 128, 128);
     }

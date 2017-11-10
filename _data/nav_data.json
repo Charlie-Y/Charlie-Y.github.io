@@ -2,31 +2,31 @@
     "links": [
         {
             "title": "1D",
-            "icon": "",
+            "icon": "icon-1D.html",
             "category": "1D",
             "category_page": "writing",
-            "description": "Writings, Essays, Plays, Poems."
+            "description": "Writings, Essays, Plays, Poems"
         },
         {
             "title": "2D",
-            "icon": "",
+            "icon": "icon-2D.html",
             "category": "2D",
             "category_page": "visual",
-            "description": "Photography, Drawings, Doodles."
+            "description": "Photography, Drawings, Doodles"
         },
         {
             "title": "3D",
-            "icon": "",
+            "icon": "icon-3D.html",
             "category": "3D",
             "category_page": "spacial",
-            "description": "Sculptures, Dance."
+            "description": "Sculptures, Dance, Cosplay"
         },
         {
             "title": "4D",
-            "icon": "",
+            "icon": "icon-4D.html",
             "category": "4D",
             "category_page": "interactive",
-            "description": "Interactive Art, Games"
+            "description": "Interactive Art, Games, Exhibitions"
         }
     ]
 }

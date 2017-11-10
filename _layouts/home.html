@@ -23,12 +23,15 @@
                 <nav class="home-nav">
                     {% for navLink in site.data.nav_data.links %}
                     <div class="home-nav-block">
+                        <div class="home-nav-icon-wrapper">
+                            {% include main-icon.html icon-file=navLink.icon%}
+                        </div>
                         <div class="home-nav-upper">
-                            <h2 class="nav-title">
+                            <span class="nav-title">
                                 <a href="{{ "category/" | append: navLink.category_page  | absolute_url }}">
                                     {{navLink.title}}
                                 </a>
-                            </h2>
+                            </span>
                         </div>
                         <div class="home-nav-title">
                             <a href="{{ "category/" | append: navLink.category_page | absolute_url }}">
