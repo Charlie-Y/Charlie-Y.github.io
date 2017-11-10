@@ -1,4 +1,9 @@
+@import "fonts/Noway/stylesheet_italic";
+@import "fonts/Noway/stylesheet_regular";
+@import "fonts/Novar/novar";
+
 .home-body {
+    font-family: "Novar";
     background: rgb(54, 54, 54);
 }
 
@@ -6,24 +11,40 @@
     margin-top: 20%;
     text-align: center;
     color: white;
+
+    // font-weight: lighter;
 }
 
 .home-title-top {
+    .home-title {
+        font-weight: 200;
+    }
 }
 
 .home-title-middle {
+    .home-title-sub {
+        font-weight: lighter;
+    }
 }
 
 .home-title-bottom {
 }
 
-.home-title-main {
-    font-size: 2.4rem;
+.home-title.home-title-main {
+    // font-family: "nowayitalic";
+    font-size: 3rem;
 }
 
 .home-nav-wrapper {
     color: white;
     margin: 3rem 0rem;
+    a {
+        color: rgb(198, 198, 198);
+    }
+}
+
+@mixin debug-border {
+    border: solid 0.5px blue;
 }
 
 .home-nav {
@@ -36,6 +57,9 @@
 .home-nav-block {
     margin: 0;
     padding: 0 0.5rem;
+    flex-basis: 25%;
+
+    // @include debug-border;
 
     @include media-query($on-palm) {
         margin-top: $spacing-unit;
