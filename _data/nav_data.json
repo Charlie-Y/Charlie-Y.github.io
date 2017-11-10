@@ -4,24 +4,28 @@
             "title": "1D",
             "icon": "",
             "category": "1D",
+            "category_page": "writing",
             "description": "Writings, Essays, Plays, Poems."
         },
         {
             "title": "2D",
             "icon": "",
             "category": "2D",
+            "category_page": "visual",
             "description": "Photography, Drawings, Doodles."
         },
         {
             "title": "3D",
             "icon": "",
             "category": "3D",
+            "category_page": "spacial",
             "description": "Sculptures, Dance."
         },
         {
             "title": "4D",
             "icon": "",
             "category": "4D",
+            "category_page": "interactive",
             "description": "Interactive Art, Games"
         }
     ]

@@ -24,10 +24,16 @@
                     {% for navLink in site.data.nav_data.links %}
                     <div class="home-nav-block">
                         <div class="home-nav-upper">
-                            <h2 class="nav-title">{{navLink.title}}</h2>
+                            <h2 class="nav-title">
+                                <a href="{{ "category/" | append: navLink.category_page)  | absolute_url }}">
+                                    {{navLink.title}}
+                                </a>
+                            </h2>
                         </div>
                         <div class="home-nav-title">
-                            {{navLink.description}}
+                            <a href="{{ "category/" | append: navLink.category_page | absolute_url }}">
+                                {{navLink.description}}
+                            </a>
                         </div>
                     </div>
                     {% endfor %}
