@@ -49,3 +49,14 @@
         text-align: center;
     }
 }
+
+.home-about-wrapper {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    .about-link {
+        color: rgb(128, 128, 128);
+    }
+}

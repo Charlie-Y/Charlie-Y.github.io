@@ -17,7 +17,8 @@ title: Charlie Dawn Yang - Portfolio
 email: charliedawnyang@gmail.com
 description: Various collected works by Charlie Dawn Yang
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://charliedawnyang.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://charlie-y.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "http://charliedawnyang.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: Charlie-Y
 
 # Build settings
