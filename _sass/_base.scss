@@ -6,3 +6,9 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
+$home-icon-space-width: 80px;
+
+@mixin debug-border($color) {
+    border: solid 0.5px $color;
+}

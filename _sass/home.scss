@@ -40,19 +40,16 @@
 }
 
 .home-nav-icon-wrapper {
-    height: 40px;
+    height: $home-icon-space-width;
 }
 
 .home-nav-wrapper {
     color: white;
     margin: 3rem 0rem;
+    margin-top: 0rem;
     // a {
     // color: rgb(198, 198, 198);
     // }
-}
-
-@mixin debug-border {
-    border: solid 0.5px blue;
 }
 
 .home-nav {
