@@ -12,3 +12,32 @@ $home-icon-space-width: 80px;
 @mixin debug-border($color) {
     border: solid 0.5px $color;
 }
+
+@function pow($base, $exponents) {
+    $raised: 1;
+
+    @for $i from 1 through $exponents {
+        $raised: $raised * $base;
+    }
+
+    @return $raised;
+}
+
+// https://css-tricks.com/snippets/sass/tint-shade-functions/
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}

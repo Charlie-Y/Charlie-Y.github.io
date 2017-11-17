@@ -1,9 +1,13 @@
+---
+custom_js:
+- jquery.min
+- home
+---
 <html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
 {% include head.html %}
 
 <body class="home-body">
-    <!-- {% include header.html %} -->
     <main class="page-content" aria-label="Content">
         <div class="wrapper home">
 
@@ -23,9 +27,9 @@
                 <nav class="home-nav">
                     {% for navLink in site.data.nav_data.links %}
                     <div class="home-nav-block">
-                        <div class="home-nav-icon-wrapper">
+                        <a href="{{ "category/" | append: navLink.category_page  | absolute_url }}" class="home-nav-icon-wrapper">
                             {% include main-icon.html icon-file=navLink.icon%}
-                        </div>
+                        </a>
                         <div class="home-nav-upper">
                             <span class="nav-title">
                                 <a href="{{ "category/" | append: navLink.category_page  | absolute_url }}">

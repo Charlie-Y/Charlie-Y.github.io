@@ -41,6 +41,7 @@
 
 .home-nav-icon-wrapper {
     height: $home-icon-space-width;
+    display: block;
 }
 
 .home-nav-wrapper {
@@ -69,6 +70,8 @@
 
     @include media-query($on-palm) {
         margin-top: $spacing-unit;
+        margin-top: 20vh;
+        margin-bottom: 20vh;
     }
 
     .home-nav-upper {

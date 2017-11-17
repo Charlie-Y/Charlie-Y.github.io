@@ -1,5 +1,146 @@
 //wow
 
+.cube {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+}
+
+.cube-face {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    transition: all 0.6s;
+    opacity: 0.8;
+    border: solid 0.5px rgba(255, 255, 255, 0.62);
+}
+
+@mixin cube-faces($dim) {
+    .cube-face-front {
+        transform: translate3d(0, 0, $dim/2);
+    }
+    .cube-face-back {
+        transform: rotateY(180deg) translate3d(0, 0, $dim/2);
+    }
+    .cube-face-left {
+        transform: rotateY(-90deg) translate3d(0, 0, $dim/2);
+    }
+    .cube-face-right {
+        transform: rotateY(90deg) translate3d(0, 0, $dim/2);
+    }
+    .cube-face-top {
+        transform: rotateX(90deg) translate3d(0, 0, $dim/2);
+    }
+    .cube-face-bottom {
+        transform: rotateX(-90deg) translate3d(0, 0, $dim/2);
+    }
+}
+
+@mixin random-bgr() {
+    background: rgb(random(255), random(255), random(255));
+}
+
+@mixin cube-face-shift($color: magenta, $name: front, $op: 0.6 ) {
+    animation: cube-face-shift-#{$name} 4s infinite linear alternate-reverse;
+
+    // @keyframes cube-face-shift-#{$name} {
+    //     0% {
+    //         opacity: $op;
+    //         background: $color;
+    //     }
+    //
+    //     62% {
+    //         background: saturate($color, 50%);
+    //         opacity: 1;
+    //     }
+    //
+    //     100% {
+    //         opacity: $op;
+    //         background: $color;
+    //     }
+    // }
+
+    @keyframes cube-face-shift-#{$name} {
+        @for $i from 0 to 20 {
+            #{$i * 5}% {
+                @include random-bgr();
+                // transform: scale(random(10)/10 + 1);
+            }
+        }
+    }
+}
+
+@mixin shaded-cube-top($color: magenta, $name: 0, $op: 1) {
+    .cube-face {
+        border: none;
+    }
+
+    .cube-face-front {
+        opacity: 0;
+    }
+    .cube-face-back {
+        opacity: $op;
+        background: tint($color, 10%);
+    }
+
+    .cube-face-left {
+        opacity: 0;
+    }
+    .cube-face-right {
+        opacity: $op;
+        background: shade($color, 50%);
+    }
+    .cube-face-top {
+        background: tint($color, 50%);
+        opacity: $op;
+    }
+    .cube-face-bottom {
+        opacity: 0;
+    }
+
+    &:hover {
+        .cube-face-back {
+            @include cube-face-shift(tint($color, 10%), front-#{$name}, $op);
+        }
+        .cube-face-right {
+            @include cube-face-shift(shade($color, 50%), right-#{$name}, $op);
+        }
+        .cube-face-top {
+            @include cube-face-shift(tint($color, 50%), top-#{$name}, $op);
+        }
+    }
+}
+
+@mixin shaded-cube-bottom($color: magenta, $op: 1) {
+    .cube-face {
+        border: none;
+    }
+    .cube-face-front {
+        background: tint($color, 40%);
+        opacity: $op;
+    }
+    .cube-face-back {
+        opacity: 0;
+    }
+    .cube-face-left {
+        background: shade($color, 30%);
+        opacity: $op;
+    }
+    .cube-face-right {
+        opacity: 0;
+    }
+    .cube-face-top {
+        opacity: 0;
+    }
+    .cube-face-bottom {
+        background: shade($color, 80%);
+        opacity: $op;
+        // z-index: 100;
+    }
+}
+
+// ===================== 1D =================
 @keyframes blink-fade {
     0% {
         opacity: 1;
@@ -169,7 +310,7 @@ $dim-2D: 18px;
     }
 }
 
-.icon-2d-wrapper {
+.nav-icon-2D {
     transition: all ease-in 0.2s;
     position: relative;
 }
@@ -179,7 +320,7 @@ $dim-2D: 18px;
     height: $dim-2D;
     border: solid 1px white;
     display: block;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.1);
 
     margin: 0 auto;
     position: absolute;
@@ -224,34 +365,29 @@ $size: 24px; // cube length
     height: $size;
 
     transition: all 0.4s ease-out;
-}
 
-.cube {
-    position: relative;
-    width: inherit;
-    height: inherit;
+    .cube {
+        transition: all 2s ease-out;
+        $deg: 45deg;
+        transform: rotateX(35.5deg) rotateY(45deg); // rotateZ($deg);
+    }
 
-    transform-style: preserve-3d;
-    transition: all 2s ease-out;
-    // transform: rotateY(60deg) rotateX(30deg);
-
-    // perspective: 600px;
-    $deg: 45deg;
-    transform: rotateX(35.5deg) rotateY(45deg); // rotateZ($deg);
+    @include cube-faces($size);
 }
 
 @mixin nav-icon-3d-hover {
     .nav-icon-3D {
-        transform: scale(1.8);
-    }
-    .cube {
-        animation: cube-spin 20s infinite linear 2s;
+        transform: scale(1.6);
 
-        transform: rotateX(35.5 + 180deg) rotateY(765deg);
+        .cube {
+            animation: cube-spin 20s infinite linear 2s;
 
-        .cube-face {
-            background: rgba(255, 255, 255, 0.18);
-            border-width: 1px;
+            transform: rotateX(35.5 + 180deg) rotateY(765deg);
+
+            .cube-face {
+                background: rgba(255, 255, 255, 0.05);
+                border-width: 1px;
+            }
         }
     }
 }
@@ -264,38 +400,88 @@ $size: 24px; // cube length
         transform: rotateX(35.5 + 720deg) rotateY(765deg + 720);
     }
 }
+// ============================= 4D ============== //
 
-.cube-face {
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    // background: red;
-    transition: all 0.6s;
-    opacity: 0.8;
-    border: solid 0.5px rgba(255, 255, 255, 0.62);
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(45deg);
+    }
+    100% {
+        -webkit-transform: rotate(765deg);
+    }
 }
-// faces
-.cube-face-front {
-    // background: yellow;
-    transform: translate3d(0, 0, $size/2);
-}
-.cube-face-back {
-    // background: black;
-    transform: rotateY(180deg) translate3d(0, 0, $size/2);
-}
-.cube-face-left {
-    // background: green;
-    transform: rotateY(-90deg) translate3d(0, 0, $size/2);
-}
-.cube-face-right {
-    // background: magenta;
-    transform: rotateY(90deg) translate3d(0, 0, $size/2);
-}
-.cube-face-top {
-    // background: blue;
-    transform: rotateX(90deg) translate3d(0, 0, $size/2);
-}
-.cube-face-bottom {
-    // background: red;
-    transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+
+$dim-4D: 14px;
+
+.nav-icon-4D {
+    height: $dim-4D;
+    width: $dim-4D;
+    position: relative;
+
+    $starting-rotation: rotateX(35.5deg) rotateY(45deg);
+
+    transition: all 0.2s ease-in;
+
+    .cube {
+        position: absolute;
+        top: 0;
+        transition: all 0.4s ease-in;
+        transition-delay: 0.4s;
+
+        .cube-face {
+            background: inherit;
+            // border: solid 1px rgb(32, 18, 144);
+        }
+    }
+
+    @include cube-faces($dim-4D);
+
+    $shift: $dim-4D * 1;
+    $top-shift: -$shift * 0.77;
+    $new-shift: $dim-4D * 0.7;
+    .cube-0 {
+        transform: translate3d(0, -$shift * 0.8, 0) $starting-rotation;
+    }
+    .cube-1 {
+        transform: translate3d($shift, $shift, 0) $starting-rotation;
+    }
+    .cube-2 {
+        transform: translate3d(-$shift, $shift, 0) $starting-rotation;
+    }
+
+    @at-root {
+        .main-icon {
+            &:hover,
+            &.hover {
+                .nav-icon-4D {
+                    transform: scale(1.4);
+
+                    .cube-0 {
+                        transform: translate3d(0, -$new-shift * 0.77, 0)
+                            $starting-rotation;
+                    }
+                    .cube-1 {
+                        transform: translate3d($new-shift, $new-shift, 0)
+                            $starting-rotation;
+                    }
+                    .cube-2 {
+                        transform: translate3d(-$new-shift, $new-shift, 0)
+                            $starting-rotation;
+                    }
+
+                    .cube-0 {
+                        @include shaded-cube-top(rgb(109, 38, 117), 0);
+                    }
+
+                    .cube-1 {
+                        @include shaded-cube-top(rgb(70, 13, 70), 1);
+                    }
+
+                    .cube-2 {
+                        @include shaded-cube-top(rgb(135, 31, 97), 2);
+                    }
+                }
+            }
+        }
+    }
 }

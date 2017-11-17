@@ -4,7 +4,7 @@
 @mixin icon-bar {
     content: "";
     // width: 30%;
-    background: white;
+    background: rgba(144, 143, 143, 1);
     height: 1px;
     display: inline-block;
 }
@@ -23,32 +23,30 @@ $icon-bar-withdraw-time: 0.3s;
     }
 
     .icon-bar-right {
-        transform-origin: right;
+        // transform-origin: right;
     }
 
     .icon-bar-left {
-        transform-origin: left;
+        // transform-origin: left;
     }
 
-    &:hover {
+    &:hover,
+    &.hover {
         .nav-icon-outer {
             &:after {
                 opacity: 1;
             }
             .icon-bar-left {
-                transform: scaleX(0);
+                transform: translateX(-100%);
             }
 
             .icon-bar-right {
-                transform: scaleX(0);
+                transform: translateX(100%);
             }
         }
 
         .nav-icon-inner {
-            // width: 40%;
-            // padding: 1rem;
-            // background: red;
-            // height: 10px;
+            cursor: pointer;
         }
 
         .nav-icon-1D {
@@ -65,12 +63,12 @@ $icon-bar-withdraw-time: 0.3s;
 
     .nav-icon-outer {
         display: flex;
-        flex: 5; // determines space for icon
+        flex: 8; // determines space for icon
         position: relative;
         align-items: center;
 
         .icon-bar {
-            background: green;
+            // background: green;
         }
     }
 
@@ -85,36 +83,5 @@ $icon-bar-withdraw-time: 0.3s;
         width: 100%;
         display: flex;
         justify-content: center;
-    }
-
-    // .nav-icon,
-    // .nav-icon-2D,
-    // .nav-icon-3D,
-    .nav-icon-4D {
-        // &:before {
-        // margin-left: 15px;
-        content: " ";
-        width: 22px;
-        height: 22px;
-        background: white;
-        position: relative;
-        display: block;
-        // transition: all ease-in 0.2s;
-
-        transform: rotate(45deg);
-
-        &:hover {
-            transform: scale(1.5);
-        }
-        // }
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(45deg);
-    }
-    100% {
-        transform: rotate(765deg);
     }
 }
