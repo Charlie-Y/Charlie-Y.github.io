@@ -11,6 +11,43 @@
 
 $icon-bar-withdraw-time: 0.3s;
 
+@mixin hover-icons {
+    .nav-icon-outer {
+        &:after {
+            opacity: 1;
+        }
+        .icon-bar-left {
+            transform: translateX(-100%);
+        }
+
+        .icon-bar-right {
+            transform: translateX(100%);
+        }
+    }
+
+    .nav-icon-inner {
+        cursor: pointer;
+    }
+
+    .nav-icon-1D {
+        @include nav-icon-1D-hover($icon-bar-withdraw-time);
+    }
+
+    .icon-2d-wrapper {
+        transform: scale(1.1);
+    }
+    @include nav-icon-2d-hover;
+
+    @include nav-icon-3d-hover;
+}
+
+.home-nav-block {
+    &:hover,
+    &.hover {
+        @include hover-icons;
+    }
+}
+
 .main-icon {
     height: 100%;
     width: 100%;
@@ -32,33 +69,6 @@ $icon-bar-withdraw-time: 0.3s;
 
     &:hover,
     &.hover {
-        .nav-icon-outer {
-            &:after {
-                opacity: 1;
-            }
-            .icon-bar-left {
-                transform: translateX(-100%);
-            }
-
-            .icon-bar-right {
-                transform: translateX(100%);
-            }
-        }
-
-        .nav-icon-inner {
-            cursor: pointer;
-        }
-
-        .nav-icon-1D {
-            @include nav-icon-1D-hover($icon-bar-withdraw-time);
-        }
-
-        .icon-2d-wrapper {
-            transform: scale(1.1);
-        }
-        @include nav-icon-2d-hover;
-
-        @include nav-icon-3d-hover;
     }
 
     .nav-icon-outer {

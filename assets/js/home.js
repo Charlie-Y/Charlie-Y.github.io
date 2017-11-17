@@ -1,5 +1,5 @@
 function isScrolledIntoView(elem, index) {
-    var percent = 0.25;
+    var percent = 0.15;
     var buffer = window.innerHeight * percent;
     var docViewTop = window.scrollY;
     var docViewBottom = docViewTop + window.innerHeight;
@@ -18,7 +18,7 @@ function isScrolledIntoView(elem, index) {
 
 function resetHoverClasses() {
     if (window.innerWidth > 600) {
-        $(".main-icon").removeClass("hover");
+        $(".home-nav-block").removeClass("hover");
         return true;
     }
     return false;
@@ -32,7 +32,7 @@ $(document).ready(function() {
     $(window).scroll(function() {
         if (resetHoverClasses()) return;
 
-        $(".main-icon").each(function(index, elem) {
+        $(".home-nav-block").each(function(index, elem) {
             var $elem = $(elem);
             if (isScrolledIntoView(elem, index)) {
                 if (!$elem.hasClass("hover")) {

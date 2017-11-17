@@ -82,11 +82,24 @@
         }
     }
     .home-nav-title {
-        font-size: 1rem;
+        font-size: 0.9rem;
         text-align: center;
         a {
-            opacity: 0.7;
-            color: white;
+            transition: all 0.2s ease-in;
+            color: rgba(180, 197, 238, 0.7);
+            text-decoration: none;
+            &:hover {
+                color: rgba(255, 255, 255, 0.9);
+
+                .nav-subtitle-header {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+
+        .nav-subtitle-header {
+            transition: inherit;
+            color: rgba(255, 255, 255, 0.8);
         }
     }
 }
