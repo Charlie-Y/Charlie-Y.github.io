@@ -193,6 +193,12 @@
     $anim-mult: 2;
     $anim-delay: 0.2s + $delay;
 
+    .dot,
+    .dot:after,
+    .dot:before {
+        background: #118ab2;
+    }
+
     .d1 {
         animation: blink-fade (1s * $anim-mult) infinite ($anim-delay + (0.5s *
                             $anim-mult))
@@ -281,8 +287,8 @@ $dim-2D: 18px;
     transition-delay: (0.3s * $num);
     transition-duration: 0.4s;
     opacity: 1;
-    border: solid 1px rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.2);
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 @mixin tile($num) {
@@ -293,7 +299,7 @@ $dim-2D: 18px;
     .tile {
         transform: translateY(-60%) rotate(-45deg);
         border: solid 1px rgba(255, 255, 255, 0.5);
-        background: rgba(255, 255, 255, 0.5);
+        background: rgb(238, 70, 110);
     }
 
     .tile-1 {
@@ -385,7 +391,7 @@ $size: 24px; // cube length
             transform: rotateX(35.5 + 180deg) rotateY(765deg);
 
             .cube-face {
-                background: rgba(255, 255, 255, 0.05);
+                background: rgba(6, 214, 160, 0.6);
                 border-width: 1px;
             }
         }
