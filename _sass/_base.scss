@@ -41,3 +41,45 @@ $home-icon-space-width: 80px;
 @function shade($color, $percentage) {
     @return mix(black, $color, $percentage);
 }
+
+.site-header {
+    background: #0d1632;
+    .site-title {
+        color: rgb(204, 204, 204);
+        font-family: "Novar";
+    }
+
+    .trigger {
+        display: flex;
+        align-items: center;
+        font-family: "Novar";
+
+        .category-link {
+            $link-color: rgba(158, 151, 168, 1);
+            display: inline-block;
+            color: $link-color;
+            margin-right: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                color: saturate($link-color, 50%);
+            }
+            .link-title {
+                font-size: 1.2rem;
+            }
+
+            .link-subtitle {
+                font-size: 0.9rem;
+            }
+            // color: blue;
+        }
+    }
+}
+
+.page-content {
+    // font-family: "Novar";
+}
+
+.excerpt {
+}

@@ -8,6 +8,9 @@ layout: page
         <a href="{{ post.url | absolute_url }}">
             {{ post.title }}
         </a>
+        <p class="excerpt">
+            {{post.excerpt}}
+        </p>
     </li>
 {% endfor %}
 </ol>

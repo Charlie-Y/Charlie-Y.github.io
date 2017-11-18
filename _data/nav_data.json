@@ -4,8 +4,8 @@
             "title": "1D",
             "icon": "icon-1D.html",
             "category": "1D",
-            "category_page": "writing",
-            "description_starter": "Writing:",
+            "category_page": "textual",
+            "description_starter": "Textual",
             "description": "Essays, Plays, Poems"
         },
         {
@@ -13,7 +13,7 @@
             "icon": "icon-2D.html",
             "category": "2D",
             "category_page": "visual",
-            "description_starter": "Visual:",
+            "description_starter": "Visual",
             "description": "Photography, Drawings, Doodles"
         },
         {
@@ -21,7 +21,7 @@
             "icon": "icon-3D.html",
             "category": "3D",
             "category_page": "spacial",
-            "description_starter": "Spacial:",
+            "description_starter": "Spacial",
             "description": "Sculpture, Dance"
         },
         {
@@ -29,7 +29,7 @@
             "icon": "icon-4D.html",
             "category": "4D",
             "category_page": "interactive",
-            "description_starter": "Interactive:",
+            "description_starter": "Interactive",
             "description": "Games, Exhibitions"
         }
     ]

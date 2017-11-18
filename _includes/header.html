@@ -3,7 +3,7 @@
     <div class="wrapper">
         {% assign default_paths = site.pages | map: "path" %}
         {% assign page_paths = site.header_pages | default: default_paths %}
-        <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        <a class="site-title" href="{{ "/" | relative_url }}">{{ site.subtitle | escape }}</a>
 
         <nav class="site-nav">
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -17,7 +17,13 @@
                 </span>
             </label>
             <div class="trigger">
-                <a class="page-link" href="{{ my_page.url | relative_url }}"></a>
+                {% for navLink in site.data.nav_data.links %}
+                <a class="category-link" href="{{ "category/" | append: navLink.category_page  | absolute_url }}">
+                    <span class="link-title">{{navLink.title}}</span>
+                    <span class="link-subtitle"> {{navLink.description_starter}}</span>
+                </a>
+                {% endfor %}
+
             </div>
         </nav>
     </div>

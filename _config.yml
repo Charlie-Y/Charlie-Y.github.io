@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Charlie Dawn Yang - Portfolio
+subtitle: CDY
 email: charliedawnyang@gmail.com
 description: Various collected works by Charlie Dawn Yang
 baseurl: "" # the subpath of your site, e.g. /blog
